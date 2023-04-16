@@ -13,9 +13,6 @@ import os
 from pathlib import Path
 import environ
 
-
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -61,7 +58,6 @@ ROOT_URLCONF = "app.urls"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 MEDIA_URL = "/uploads/"
-
 
 TEMPLATES = [
     {
