@@ -1,0 +1,29 @@
+[
+{
+  "model": "webapp.category",
+  "pk": 1,
+  "fields": {
+    "name": "Информационные технологии",
+    "created_at": "2023-04-16T18:50:38.445Z",
+    "updated_at": "2023-04-16T18:50:38.445Z"
+  }
+},
+{
+  "model": "webapp.vacancy",
+  "pk": 3,
+  "fields": {
+    "title": "Разработчик Python (Django)",
+    "salary": 500000,
+    "description": "",
+    "experience_from": 3,
+    "experience_to": null,
+    "category": 1,
+    "owner": 1,
+    "created_at": "2023-04-16T18:55:45.055Z",
+    "updated_at": "2023-04-16T18:55:45.055Z",
+    "is_published": true,
+    "is_deleted": false,
+    "deleted_at": null
+  }
+}
+]
