@@ -10,6 +10,10 @@ class VacancyListView(ListView):
     template_name = 'vacancy/vacancy_list.html'
     context_object_name = 'vacancies'
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(is_published=True)
+
 
 class VacancyCreateView(LoginRequiredMixin, CreateView):
     model = Vacancy
