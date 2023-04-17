@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
 from django.db import models
-from django.utils import timezone
 
 
 class Vacancy(models.Model):
@@ -49,25 +48,9 @@ class Vacancy(models.Model):
         default=False,
         verbose_name='Опубликован'
     )
-    is_deleted = models.BooleanField(
-        null=False,
-        default=False,
-        verbose_name="Удален"
-    )
-    deleted_at = models.DateTimeField(
-        null=True,
-        blank=True,
-        default=None,
-        verbose_name="Дата и время удаления"
-    )
 
     def __str__(self):
         return self.title
-
-    def delete(self, using=None, keep_parents=False):
-        self.is_deleted = True
-        self.deleted_date = timezone.now()
-        self.save()
 
     class Meta:
         verbose_name = 'Вакансия'
