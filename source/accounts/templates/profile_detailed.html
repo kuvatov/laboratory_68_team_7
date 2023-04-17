@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    hh profile
+{% endblock %}
+
+{% block modal_window %}
+{# в эту модалку помещаем форму is partial_user_change #}
+    <div class="modal fade show" id="id-modalUserChange" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% block content %}
+    {# выводим общую инфо для соискателя и для компании  #}
+    <div class="container" id="general_profile_info">
+       {% include "partial/partial_general_profile_info.html" %}
+    </div>
+    {# если юзер - компания, отображаем детали список резюме, иначе список вакансий, через частичные шаблоны #}
+    <div class="container" id="type_related_profile_info">
+        {% if user_obj.is_corporate %}
+            {% include "partial/corporate_detail.html" %}
+        {% else %}
+            {% include "partial/employee_detail.html" %}
+        {% endif %}
+    </div>
+
+{% endblock %}
