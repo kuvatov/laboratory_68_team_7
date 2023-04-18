@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.utils import timezone
 from django.views.generic import ListView, CreateView, UpdateView
 
 from webapp.models import Vacancy
@@ -29,6 +30,5 @@ class VacancyUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('vacancy_list')
 
     def form_valid(self, form):
-        self.object = form.save(commit=False)
-        self.object.save(update_fields=['updated_at'])
+        form.instance.updated_at = timezone.now()
         return super().form_valid(form)
