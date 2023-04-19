@@ -1,18 +1,24 @@
 <div class="row mt-3 mb-3">
     <h2 class="text-center">Ваши вакансии</h2>
 </div>
-<a href="{% url 'vacancy_create' %}">Создать вакансию</a>
+<a href="{% url 'vacancy_create' %}" class="btn btn-primary">Добавить вакансию</a>
 {% if user.vacancies.all %}
-{% for vacancy in user.vacancies.all %}
-<div class="card mb-3" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">{{ vacancy.title }}</h5>
-        <p class="card-text">{{ vacancy.updated_at }}</p>
-        <a href="#" class="card-link">Обновить</a>
-        <a href="{% url 'vacancy_update' vacancy.pk %}" class="card-link">Редактировать</a>
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+    {% for vacancy in user.vacancies.all %}
+    <div class="col">
+        <div class="card vacancy_card">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{ vacancy.title }}</h5>
+                <p class="card-text vacancy_card_date">{{ vacancy.updated_at }}</p>
+                <div class="d-flex justify-content-evenly">
+                    <a href="#" class="vacancy_card_link">Обновить</a>
+                    <a href="{% url 'vacancy_update' vacancy.pk %}" class="vacancy_card_link">Редактировать</a>
+                </div>
+            </div>
+        </div>
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
 {% else %}
 <p>Вакансии не добавлены</p>
 {% endif %}

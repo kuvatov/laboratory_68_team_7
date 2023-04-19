@@ -1,0 +1,10 @@
+.vacancy_card_date {
+    color: gray;
+}
+.vacancy_card_link {
+    text-decoration: none;
+}
+.vacancy_card:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px gray;
+}
