@@ -26,7 +26,7 @@
     </div>
     {# если юзер - компания, отображаем детали список резюме, иначе список вакансий, через частичные шаблоны #}
     <div class="container" id="type_related_profile_info">
-        {% if user_obj.is_corporate %}
+        {% if user_obj.profile.is_corporate %}
             {% include "partial/corporate_detail.html" %}
         {% else %}
             {% include "partial/employee_detail.html" %}

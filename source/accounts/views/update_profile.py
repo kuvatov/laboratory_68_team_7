@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.views.generic import UpdateView
@@ -6,7 +7,7 @@ from django.views.generic import UpdateView
 from accounts.forms import UserChangeForm, ProfileChangeForm
 
 
-class UserChangeView(UpdateView):
+class UserChangeView(UserPassesTestMixin, UpdateView):
     model = get_user_model()
     form_class = UserChangeForm
     template_name = 'partial/partial_user_change.html'
@@ -58,3 +59,6 @@ class UserChangeView(UpdateView):
         print(form_kwargs)
         print(self.object.profile.avatar)
         return ProfileChangeForm(**form_kwargs)
+
+    def test_func(self):
+        return self.get_object() == self.request.user
