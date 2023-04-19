@@ -5,7 +5,7 @@ from django.views.generic import CreateView
 from webapp.models import CV
 
 
-class CreateCV(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+class CreateCV(UserPassesTestMixin, CreateView):
     template_name = "CV/cv_create.html"
     model = CV
     fields = ("category", "title", "is_published")
@@ -20,5 +20,7 @@ class CreateCV(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         return redirect("cv_create")
 
     def test_func(self):
-        return self.request.user.profile.is_corporate == False
-
+        if self.request.user.profile.is_corporate:
+            return False
+        else:
+            return True
