@@ -3,6 +3,7 @@
 }
 .vacancy_card_link {
     text-decoration: none;
+    width: 150px;
 }
 .vacancy_card:hover {
     cursor: pointer;

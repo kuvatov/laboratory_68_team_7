@@ -9,10 +9,14 @@
         <div class="card vacancy_card">
             <div class="card-body text-center">
                 <h5 class="card-title">{{ vacancy.title }}</h5>
-                <p class="card-text vacancy_card_date">{{ vacancy.updated_at }}</p>
+                <p class="card-text vacancy_card_date" id="updated-at-{{ vacancy.pk }}">{{ vacancy.updated_at }}</p>
                 <div class="d-flex justify-content-evenly">
-                    <a href="#" class="vacancy_card_link">Обновить</a>
-                    <a href="{% url 'vacancy_update' vacancy.pk %}" class="vacancy_card_link">Редактировать</a>
+                    <a href="#" class="vacancy_card_link btn btn-outline-dark">
+                        Обновить
+                    </a>
+                    <a href="{% url 'vacancy_update' vacancy.pk %}" class="vacancy_card_link btn btn-outline-dark">
+                        Редактировать
+                    </a>
                 </div>
             </div>
         </div>
