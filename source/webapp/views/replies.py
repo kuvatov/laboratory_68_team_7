@@ -17,3 +17,9 @@ class ReplyCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+class ReplyListView(LoginRequiredMixin, ListView):
+    model = Reply
+    template_name = 'application_list.html'
+
+    def get_queryset(self):
+        return Reply.objects.filter(user=self.request.user)
