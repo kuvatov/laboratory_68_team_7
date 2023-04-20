@@ -1,5 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import JsonResponse
 from django.urls import reverse_lazy
+from django.utils import timezone
+from django.views import View
 from django.views.generic import ListView, CreateView, UpdateView
 
 from webapp.models import Vacancy
@@ -28,7 +31,10 @@ class VacancyUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'vacancy/vacancy_update.html'
     success_url = reverse_lazy('vacancy_list')
 
-    def form_valid(self, form):
-        self.object = form.save(commit=False)
-        self.object.save(update_fields=['updated_at'])
-        return super().form_valid(form)
+
+class VacancyUpdateDateView(View):
+    def post(self, request, *args, **kwargs):
+        vacancy = Vacancy.objects.get(pk=self.kwargs['pk'])
+        vacancy.updated_at = timezone.now()
+        vacancy.save()
+        return JsonResponse({'updated_at': vacancy.updated_at.strftime('%Y-%m-%d %H:%M:%S')})

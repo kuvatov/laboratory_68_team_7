@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% block title %}Vacancy Update{% endblock %}
-{% block menu %}{% endblock %}
 {% block content %}
 <form action="{% url 'vacancy_update' vacancy.pk %}" method="post" novalidate>
     {% include 'partial/form.html' %}
