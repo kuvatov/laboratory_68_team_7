@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    {% if CV.is_published %}
+                        опубликовано
+                    {% else %}
+                        не опубликовано
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title mb-3">{{ CV.title }}</h3>
+                    {% include "CV/partial/eduction_partial.html" %}
+                </div>
+                <div class="card-footer">
+                    <small class="text-body-secondary">Обновлен {{ CV.updated_at }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
