@@ -23,3 +23,11 @@ class ReplyListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Reply.objects.filter(user=self.request.user)
+
+
+class ReplyDetailView(LoginRequiredMixin, DetailView):
+    model = Reply
+    template_name = 'application_detail.html'
+
+    def get_queryset(self):
+        return Reply.objects.filter(user=self.request.user)
