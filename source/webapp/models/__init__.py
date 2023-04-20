@@ -3,4 +3,4 @@ from .vacancy import Vacancy
 from .experience import Experience
 from .education import Education
 from .CV import CV
-
+from .reply import Reply
