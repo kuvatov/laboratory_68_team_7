@@ -9,8 +9,7 @@
         {% if vacancy.experience_to %} до {{ vacancy.experience_to }}{% endif %} лет</p>
     <p class="card-text m-0"><b>Категория:</b> {{ vacancy.category }}</p>
     <p class="card-text m-0"><b>Дата публикации:</b> {{ vacancy.created_at }}</p>
-    <a href="#" class="btn btn-success">Откликнуться</a>
-    <br>
-    <pre class="vacancy_detail_description mt-3">{{ vacancy.description }}</pre>
+    <button id="reply_button" type="submit" class="btn btn-success">Откликнуться</button>
+    <pre class="vacancy_detail_description mt-4">{{ vacancy.description }}</pre>
 </div>
 {% endblock %}

@@ -7,12 +7,12 @@ from webapp.models import Reply
 
 class ReplyCreateView(LoginRequiredMixin, CreateView):
     model = Reply
-    fields = ['resume', 'message']
-    template_name = 'application_form.html'
-    success_url = reverse_lazy('application_list')
+    fields = ['cv']
+    success_url = reverse_lazy('index')
 
     def form_valid(self, form):
-        form.instance.vacancy_id = self.kwargs['pk']
+        form.instance.vacancy_id = self.request.POST.get('vacancy_id')
+        form.instance.cv_id = self.request.POST.get('cv_id')
         form.instance.user = self.request.user
         return super().form_valid(form)
 
