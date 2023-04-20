@@ -37,4 +37,4 @@ class VacancyUpdateDateView(View):
         vacancy = Vacancy.objects.get(pk=self.kwargs['pk'])
         vacancy.updated_at = timezone.now()
         vacancy.save()
-        return JsonResponse({'success': True})
+        return JsonResponse({'updated_at': vacancy.updated_at.strftime('%Y-%m-%d %H:%M:%S')})
