@@ -5,7 +5,7 @@
 <form action="{% url "user_update" user_obj.pk %}" id="id-profile-update-form">
     {% csrf_token %}
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Обновить профиль</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -16,7 +16,7 @@
                     {% bootstrap_field profile_form.phone_number %}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Update profile</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="submit" class="btn btn-primary">Обновить профиль</button>
                 </div>
 </form>
