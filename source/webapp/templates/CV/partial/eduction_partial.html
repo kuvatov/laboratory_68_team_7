@@ -1,10 +1,12 @@
 <h5 class="pt-2 pb-2">Образование</h5>
 {% for eductaion in CV.education.all %}
     <h6>{{ eductaion.institution_name }}</h6>
-    <p>год окончания: {{ eductaion.graduation_date}}</p>
-    <p>специализация: {{ eductaion.specialisation}}</p>
+    <p>год окончания: {{ eductaion.graduation_date }}</p>
+    <p>специализация: {{ eductaion.specialisation }}</p>
 {% endfor %}
-<a href="{% url "add_education" CV.pk %}" class="btn btn-primary">Добавить бразование</a>
+{% if  CV in user.CVs.all %}
+    <a href="{% url "add_education" CV.pk %}" class="btn btn-primary">Добавить бразование</a>
+{% endif %}
 <h5 class="pt-2 pb-2">Опыт</h5>
 {% for eductaion in CV.education.all %}
 {% endfor %}
