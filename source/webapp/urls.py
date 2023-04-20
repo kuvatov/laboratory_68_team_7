@@ -12,7 +12,7 @@ urlpatterns = [
     path('vacancies/<int:pk>/update_date/', VacancyUpdateDateView.as_view(), name='vacancy_update_date'),
     path('cv/create/', CreateCV.as_view(), name="cv_create"),
     path("add-education/cv/<int:pk>/", CreateEducation.as_view(), name="add_education"),
-    path("cv/<int:pk>/", DetailedCV.as_view(), name="cv_detailed")
+    path("cv/<int:pk>/", DetailedCV.as_view(), name="cv_detailed"),
     path('vacancies/<int:pk>/', VacancyDetailView.as_view(), name='vacancy_detail'),
     path('replies/create/', ReplyCreateView.as_view(), name='reply_create')
 ]
