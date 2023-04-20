@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Vacancy Detail{% endblock %}
+{% block content %}
+<div class="vacancy_detail_card">
+    <h1 class="card-title mb-2">{{ vacancy.title }}</h1>
+    <h4 class="card-text mb-3">{{ vacancy.salary }} KZT</h4>
+    <p class="card-text m-0"><b>Компания:</b> {{ vacancy.owner.username.capitalize }}</p>
+    <p class="card-text m-0"><b>Требуемый опыт работы:</b> от {{ vacancy.experience_from }}
+        {% if vacancy.experience_to %} до {{ vacancy.experience_to }}{% endif %} лет</p>
+    <p class="card-text m-0"><b>Категория:</b> {{ vacancy.category }}</p>
+    <p class="card-text m-0"><b>Дата публикации:</b> {{ vacancy.created_at }}</p>
+    <button id="reply_button" type="submit" class="btn btn-success">Откликнуться</button>
+    <pre class="vacancy_detail_description mt-4">{{ vacancy.description }}</pre>
+</div>
+{% endblock %}

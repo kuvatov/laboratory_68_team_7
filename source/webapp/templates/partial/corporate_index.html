@@ -1,0 +1,7 @@
+{% if cvs %}
+{% for cv in cvs %}
+<p>{{ cv.title }}</p>
+{% endfor %}
+{% else %}
+<p>Резюме не добавлены</p>
+{% endif %}

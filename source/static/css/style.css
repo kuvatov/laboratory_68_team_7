@@ -1,3 +1,6 @@
+body, pre {
+    font-family: Arial, sans-serif;
+}
 .vacancy_card_date {
     color: gray;
 }
@@ -5,7 +8,24 @@
     text-decoration: none;
     width: 150px;
 }
-.vacancy_card:hover {
+.index_employee_card:hover {
     cursor: pointer;
     box-shadow: 0 0 5px gray;
+}
+.index_employee_card {
+    color: black;
+}
+.index_employee_card h4 {
+    color: blue;
+}
+.vacancy_detail_card p {
+    padding-bottom: 10px;
+}
+textarea {
+    display: block;
+    overflow: hidden;
+    resize: none;
+}
+pre {
+    font-size: 15px;
 }
