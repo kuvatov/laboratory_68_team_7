@@ -3,19 +3,19 @@ from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views import View
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DetailView
 
 from webapp.models import Vacancy
 
 
-class VacancyListView(ListView):
+class VacancyDetailView(LoginRequiredMixin, DetailView):
     model = Vacancy
-    template_name = 'vacancy/vacancy_list.html'
-    context_object_name = 'vacancies'
+    template_name = 'vacancy/vacancy_detail.html'
+    context_object_name = 'vacancy'
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        return queryset.filter(is_published=True)
+        return queryset.filter(is_published=True).order_by('-updated_at')
 
 
 class VacancyCreateView(LoginRequiredMixin, CreateView):

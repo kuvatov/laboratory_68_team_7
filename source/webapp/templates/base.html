@@ -20,7 +20,7 @@
 {% block menu %}
     <nav class="navbar navbar-expand-lg navbar-dark mb-5" style="background-color: #303233">
         <div class="container-fluid navbar-container ps-5 pe-5">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url 'index' %}">
                 <img src="{% static 'img/hh_logo.png' %}" alt="profile" width="70" class="ms-5 mb-2 mt-2">
             </a>
             <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
@@ -54,6 +54,7 @@
 
 <script type="application/javascript" src="{% static 'js/update_user.js' %}"></script>
 <script type="application/javascript" src="{% static 'js/is_corporate.js' %}"></script>
+<script type="application/javascript" src="{% static 'js/textarea_expand.js' %}"></script>
 {% block js_script %}{% endblock %}
 
 </body>
