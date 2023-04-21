@@ -8,3 +8,6 @@ from .vacancy_create import VacancyCreateView
 from .vacancy_update import VacancyUpdateView
 from .vacancy_update_date import VacancyUpdateDateView
 from .vacancy_detail import VacancyDetailView
+from .reply_create import ReplyCreateView
+from .reply_list import ReplyListView
+from .reply_detail import ReplyDetailView
