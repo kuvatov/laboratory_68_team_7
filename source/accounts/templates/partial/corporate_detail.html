@@ -1,0 +1,31 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div class="row mt-3 mb-3">
+    <h2 class="text-center">Ваши вакансии</h2>
+</div>
+<a href="{% url 'vacancy_create' %}" class="btn btn-primary">Добавить вакансию</a>
+{% if user.vacancies.all %}
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
+    {% for vacancy in user.vacancies.all %}
+    <div class="col">
+        <div class="card vacancy_card">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{ vacancy.title }}</h5>
+                <p class="card-text vacancy_card_date" id="updated_at_{{ vacancy.pk }}">{{ vacancy.updated_at }}</p>
+                <div class="d-flex justify-content-evenly">
+                    <form>
+                        {% csrf_token %}
+                        <a href="{% url 'vacancy_update_date' vacancy.pk %}" data-vacancyId="{{ vacancy.pk }}"
+                           class="vacancy_card_link btn btn-outline-dark update_vacancy_button">Обновить</a>
+                    </form>
+                    <a href="{% url 'vacancy_update' vacancy.pk %}" class="vacancy_card_link btn btn-outline-dark">
+                        Редактировать
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>Вакансии не добавлены</p>
+{% endif %}

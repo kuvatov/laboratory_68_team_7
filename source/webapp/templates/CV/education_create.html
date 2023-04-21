@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% bootstrap_javascript %}
+
+
+{% block title %}Добавь образование{% endblock %}
+{% block menu %}{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-primary" value="Сохранить"/>
+        <a class="btn btn-danger" href="{% url 'account' user.pk %}">Отмена</a>
+    </form>
+{% endblock %}

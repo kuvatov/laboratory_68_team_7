@@ -1,3 +1,18 @@
+<div class="row">
+    <div class="col">
+        <a class="btn btn-outline-secondary" id="id_addCV" href="{% url "cv_create" %}">
+            добавить резюме
+        </a>
+    </div>
+</div>
+
 <div class="row ">
-    <h2 class="text-center">Your CV</h2>
+    {% if user == user_obj %}
+        {% if user_obj.CVs.all.count > 0 %}
+            <h2 class="text-center">Ваши резюме</h2>
+            {% include "partial/../../../webapp/templates/CV/partial/cv_partial.html" %}
+        {% else %}
+            <h2 class="text-center">Нет созданных резюме</h2>
+        {% endif %}
+    {% endif %}
 </div>

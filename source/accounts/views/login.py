@@ -24,5 +24,5 @@ class LoginView(TemplateView):
         if not user:
             return redirect("login")
         login(request, user)
-        return redirect("register")
-        # return redirect("account", pk=user.pk)
+        # return redirect("register")
+        return redirect("account", pk=user.pk)
