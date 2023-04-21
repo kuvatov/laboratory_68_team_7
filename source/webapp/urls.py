@@ -1,6 +1,6 @@
 from django.urls import path
 
-from webapp.views import CreateEducation, CreateCV, DetailedCV, UpdateCV
+from webapp.views import CreateEducation, CreateCV, DetailedCV, UpdateCV, DeleteEducation
 from webapp.views.replies import ReplyCreateView
 
 from webapp.views.vacancies import VacancyCreateView, VacancyUpdateView, VacancyUpdateDateView, VacancyDetailView

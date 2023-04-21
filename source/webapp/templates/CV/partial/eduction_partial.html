@@ -1,10 +1,18 @@
 <h5 class="pt-2 pb-2">Образование</h5>
 {% for education in CV.education.all %}
-    <h6>{{ education.institution_name }}</h6>
-    <p>год окончания: {{ education.graduation_date }}</p>
-    <p>специализация: {{ education.specialisation }}</p>
-    <a href="{% url "delete_education" %}" id="{{ education.pk }}" class="btn btn-dark btn-sm">удалить</a>
-    <br>
+    <div id="education-card-{{ education.pk }}">
+        <h6>{{ education.institution_name }}</h6>
+        <p>год окончания: {{ education.graduation_date }}</p>
+        <p>специализация: {{ education.specialisation }}</p>
+        {% if  CV in user.CVs.all %}
+            <form>
+                {% csrf_token %}
+                <a href="{% url "delete_education" %}" data-education-id="{{ education.pk }}"
+                   class="btn btn-dark btn-sm delete-education">удалить</a>
+            </form>
+        {% endif %}
+        <br>
+    </div>
 {% endfor %}
 {% if  CV in user.CVs.all %}
     <a href="{% url "add_education" CV.pk %}" class="btn btn-primary">Добавить бразование</a>
