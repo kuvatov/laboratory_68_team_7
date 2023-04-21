@@ -1,30 +1,16 @@
+<div class="row">
+    <div class="col">
+        <a class="btn btn-outline-secondary" id="id_addCV" href="{% url "cv_create" %}">
+            добавить резюме
+        </a>
+    </div>
+</div>
+
 <div class="row ">
     {% if user == user_obj %}
         {% if user_obj.CVs.all.count > 0 %}
             <h2 class="text-center">Ваши резюме</h2>
-            {% for cv in user_obj.CVs.all %}
-                <div class="row justify-content-center">
-                    <div class="col-6">
-                        <div class="card text-center">
-                            <div class="card-header">
-                                {% if cv.is_published %}
-                                    опубликовано
-                                {% else %}
-                                    не опубликовано
-                                {% endif %}
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title mb-3">{{ cv.title }}</h5>
-                                <a href="#" class="btn btn-primary">Обновить</a>
-                                <a href="#" class="btn btn-primary">Редактировать</a>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-body-secondary">Обновлен {{ cv.updated_at }}</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+            {% include "partial/cv_list.html" %}
         {% else %}
             <h2 class="text-center">Нет созданных резюме</h2>
         {% endif %}

@@ -18,7 +18,9 @@
 
 {#кнопка обновления профиля#}
 {% if user_obj == user %}
-    <a class="btn btn-outline-secondary" id="id_user_update" href="{% url "user_update" user_obj.pk %}"
+    <div class="col">
+    <a class="btn btn-outline-secondary mb-3" id="id_user_update" href="{% url "user_update" user_obj.pk %}"
        role="button" data-bs-toggle="modal" data-bs-target="#id-modalUserChange">обновить профиль
     </a>
+    </div>
 {% endif %}
