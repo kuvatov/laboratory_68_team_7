@@ -3,6 +3,6 @@
 {% csrf_token %}
 {% bootstrap_form form %}
 <div class="page_action">
-    <input type="submit" class="btn btn-primary" value="Сохранить"/>
-    <a class="btn btn-danger" href="{{ request.META.HTTP_REFERER }}">Отмена</a>
+    <input type="submit" class="btn-form btn btn-primary" value="Сохранить"/>
+    <a class="btn-form btn btn-danger" href="{{ request.META.HTTP_REFERER }}">Отмена</a>
 </div>

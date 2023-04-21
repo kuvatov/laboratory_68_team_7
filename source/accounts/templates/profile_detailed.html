@@ -27,7 +27,6 @@ hh profile
 <div class="container" id="type_related_profile_info">
     {% if user.profile.is_corporate %}
     {% include "partial/corporate_detail.html" %}
-    {% block js_script %}<script src="{% static 'js/update_vacancy_date.js' %}"></script>{% endblock %}
     {% else %}
     {% include "partial/employee_detail.html" %}
     {% endif %}

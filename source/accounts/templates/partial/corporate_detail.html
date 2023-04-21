@@ -10,11 +10,13 @@
         <div class="card vacancy_card">
             <div class="card-body text-center">
                 <h5 class="card-title">{{ vacancy.title }}</h5>
-                <p class="card-text vacancy_card_date" id="updated-at-{{ vacancy.pk }}">{{ vacancy.updated_at }}</p>
+                <p class="card-text vacancy_card_date" id="updated_at_{{ vacancy.pk }}">{{ vacancy.updated_at }}</p>
                 <div class="d-flex justify-content-evenly">
-                    <button class="vacancy_card_link btn btn-outline-dark" id="update-date-btn-{{ vacancy.pk }}">
-                        Обновить
-                    </button>
+                    <form>
+                        {% csrf_token %}
+                        <a href="{% url 'vacancy_update_date' vacancy.pk %}" data-vacancyId="{{ vacancy.pk }}"
+                           class="vacancy_card_link btn btn-outline-dark update_vacancy_button">Обновить</a>
+                    </form>
                     <a href="{% url 'vacancy_update' vacancy.pk %}" class="vacancy_card_link btn btn-outline-dark">
                         Редактировать
                     </a>
