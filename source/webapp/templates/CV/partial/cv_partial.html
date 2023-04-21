@@ -11,11 +11,14 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title mb-3">{{ cv.title }}</h5>
-                    <a href="#" class="btn btn-primary">Обновить</a>
+                    <form class="mb-3">
+                        {% csrf_token %}
+                        <a href="{% url "cv_update_date" cv.pk %}" class="btn btn-primary updateCVBtn">Обновить</a>
+                    </form>
                     <a href="{% url "cv_detailed" cv.pk %}" class="btn btn-primary">Открыть</a>
                 </div>
                 <div class="card-footer">
-                    <small class="text-body-secondary">Обновлен {{ cv.updated_at }}</small>
+                    <small class="text-body-secondary" data-cvId="{{ cv.pk }}">Обновлен {{ cv.updated_at }}</small>
                 </div>
             </div>
         </div>

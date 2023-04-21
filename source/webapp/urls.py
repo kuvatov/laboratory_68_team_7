@@ -2,6 +2,7 @@ from django.urls import path
 
 from webapp.views import CreateEducation, CreateCV, DetailedCV, UpdateCV, DeleteEducation
 from webapp.views.replies import ReplyCreateView
+from webapp.views import UpdateCVDate
 
 from webapp.views.vacancies import VacancyCreateView, VacancyUpdateView, VacancyUpdateDateView, VacancyDetailView
 from webapp.views.index import IndexView
@@ -17,5 +18,6 @@ urlpatterns = [
     path('vacancies/<int:pk>/', VacancyDetailView.as_view(), name='vacancy_detail'),
     path('replies/create/', ReplyCreateView.as_view(), name='reply_create'),
     path("cv/<int:pk>/update", UpdateCV.as_view(), name='cv_update'),
-    path("delete-education/", DeleteEducation.as_view(), name="delete_education")
+    path("delete-education/", DeleteEducation.as_view(), name="delete_education"),
+    path('cv/<int:pk>/update_date/', UpdateCVDate.as_view(), name='cv_update_date'),
 ]
