@@ -16,5 +16,6 @@ urlpatterns = [
     path("cv/<int:pk>/", DetailedCV.as_view(), name="cv_detailed"),
     path('vacancies/<int:pk>/', VacancyDetailView.as_view(), name='vacancy_detail'),
     path('replies/create/', ReplyCreateView.as_view(), name='reply_create'),
-    path("cv/<int:pk>/update", UpdateCV.as_view(), name='cv_update')
+    path("cv/<int:pk>/update", UpdateCV.as_view(), name='cv_update'),
+    path("delete-education/", DeleteEducation.as_view(), name="delete_education")
 ]
