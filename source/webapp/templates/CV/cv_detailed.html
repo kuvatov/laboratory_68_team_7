@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-6">
+    <div class="row justify-content-center">
+        <div class="col-10">
             <div class="card">
                 <div class="card-header">
+                    <a href="{% url "cv_update" CV.pk %}" class="btn btn-dark btn-sm">редактировать</a>
                     {% if CV.is_published %}
                         опубликовано
                     {% else %}
                         не опубликовано
                     {% endif %}
+
                 </div>
                 <div class="card-body">
                     <h3 class="card-title mb-3">{{ CV.title }}</h3>
