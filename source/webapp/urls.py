@@ -4,7 +4,10 @@ from webapp.views import CreateEducation, CreateCV, DetailedCV, UpdateCV, Delete
 from webapp.views.replies import ReplyCreateView
 from webapp.views import UpdateCVDate
 
-from webapp.views.vacancies import VacancyCreateView, VacancyUpdateView, VacancyUpdateDateView, VacancyDetailView
+from webapp.views.vacancy_update_date import VacancyUpdateDateView
+from webapp.views.vacancy_update import VacancyUpdateView
+from webapp.views.vacancy_create import VacancyCreateView
+from webapp.views.vacancy_detail import VacancyDetailView
 from webapp.views.index import IndexView
 
 urlpatterns = [

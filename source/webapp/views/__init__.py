@@ -4,3 +4,7 @@ from .detailed_cv import DetailedCV
 from .update_cv import UpdateCV
 from .delete_education import DeleteEducation
 from .update_cv_date import UpdateCVDate
+from .vacancy_create import VacancyCreateView
+from .vacancy_update import VacancyUpdateView
+from .vacancy_update_date import VacancyUpdateDateView
+from .vacancy_detail import VacancyDetailView

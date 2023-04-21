@@ -1,7 +1,16 @@
 {% if cvs %}
 {% for cv in cvs %}
-<p>{{ cv.title }}</p>
+<a href="{% url 'cv_detailed' cv.pk %}" class="vacancy_card_link">
+    <div class="card mb-3">
+        <div class="card-body index_employee_card">
+            <h3 class="card-title">{{ cv.owner.first_name.capitalize }} {{ cv.owner.last_name.capitalize }}</h3>
+            <h5 class="card-text">{{ cv.title }}</h5>
+            <p class="card-text m-0">{{ cv.category }}</p>
+            <p class="card-text m-0">{{ cv.created_at }}</p>
+        </div>
+    </div>
+</a>
 {% endfor %}
 {% else %}
-<p>Резюме не добавлены</p>
+<p>Резюме не добавлено</p>
 {% endif %}

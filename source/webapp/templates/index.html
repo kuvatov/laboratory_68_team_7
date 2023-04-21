@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}Index{% endblock %}
 {% block content %}
+{% include 'partial/search_form.html' %}
+{% if is_paginated %}
+{% include 'partial/pagination.html' %}
+{% endif %}
 <div class="container" id="type_related_profile_info">
     {% if user.profile.is_corporate %}
     {% include "partial/corporate_index.html" %}
@@ -8,4 +12,7 @@
     {% include "partial/employee_index.html" %}
     {% endif %}
 </div>
+{% if is_paginated %}
+{% include 'partial/pagination.html' %}
+{% endif %}
 {% endblock %}
